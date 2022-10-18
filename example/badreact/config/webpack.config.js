@@ -344,10 +344,7 @@ module.exports = function (webpackEnv) {
             sound: true,
             icon: "Terminal Icon",
           },
-          dev: {
-            beforePackMessage: "爸爸，我开始构建了",
-            afterPackMessage: "爸爸，我构建成功了",
-          },
+
           build: {
             beforeBuildMessage: "爸爸，我开始打包了",
             afterBuildMessage: "爸爸，我打包成功了",

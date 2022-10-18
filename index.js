@@ -20,23 +20,18 @@ class NotifierPlugin {
     //   callback();
     // });
     //
-    compiler.hooks.initialize.tapAsync(
-      pluginName,
-      async (context, callback) => {
-        await notifier.notify({
-          ...this.option,
+    compiler.hooks.initialize.tap(pluginName, async (context, callback) => {
+      await notifier.notify({
+        ...this.option,
 
-          message: this.dev.beforePackMessage,
-        });
-        callback();
-      }
-    );
-    compiler.hooks.done.tapAsync(pluginName, async (context, callback) => {
+        message: this.dev.beforePackMessage,
+      });
+    });
+    compiler.hooks.done.tap(pluginName, async (context, callback) => {
       await notifier.notify({
         ...this.option,
         message: this.dev.afterPackMessage,
       });
-      callback();
     });
     // compiler.hooks.done.tap(pluginName, (compilation, callback) => {
     //   // dosomething
